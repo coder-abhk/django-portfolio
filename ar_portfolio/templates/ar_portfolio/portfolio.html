@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icon -->
+    <link rel="shortcut icon" href="{% static 'ar_portfolio/images/icon.png' %}">
+    <!-- css link -->
+    <link rel="stylesheet" href="{% static 'ar_portfolio/style.css' %}">
+    <title>AbhishekRawat</title>
+</head>
+<body>
+    <!-- nav_section -->
+    <div class="nav_bar">
+        <div class="logo">
+            <img class="logo_img" src="{% static 'ar_portfolio/images/logo.png' %}" alt="logo">
+        </div>
+        {% if messages %}
+        <div class="message_block">
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="about">
+            <a id="about_link" href="#about_me">ABOUT</a>
+        </div>
+    </div>
+
+    <!-- main_section -->
+    <div class="main_section">
+        <div class="caption_wrapper">
+            <div class="caption_text">
+                <h1 class="caption_head">Hi,</h1>
+                <p class="caption_para typewrite"></p>
+            </div>
+            <div class="get_in_touch">
+                <a href="#get_in_touch" class="btn_light">Get In Touch</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- skills_section -->
+    <div class="skills_section">
+        <h1 class="skills_head">Skills</h1>
+        <div class="skills_container">
+            <div class="skills_label">
+                <h2 class="skills_label_head">Technologies I've learned...</h2>
+            </div>
+            <div class="skills_content">
+                <ul class="skills_lists">
+                    <li>_HTML5,</li>
+                    <li>_CSS3,</li>
+                    <li>_Javascript,</li>
+                    <li>_Python</li>
+                    <li>_Django</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- project_section -->
+    <div class="project_section">
+        <div class="center_content">
+            <h1 class="center_content_head">Projects|Web Design|<br> <span class="clone">Clone</span></h1>
+        </div>
+        <div class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/01.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/02.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/03.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/04.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/05.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/06.png' %}" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- about_section -->
+    <div class="about_section" id="about_me">
+        <h1 class="about_head">About me</h1>
+        <div class="about_container">
+            <h5 class="about_tag">#about</h5>
+            <p class="about_para">I’m self taught leaner.<br>
+                I’ve learned all above skills from <br>
+                online resources.<br>
+                I want to be a fullstack developer.</p>
+            <h5 class="tagline_head">#tagline</h5>
+            <p class="tagline_para">“Keen to learn and develop new things”</p>
+        </div>
+    </div>
+
+    <!-- get_in_touch_section -->
+    <div class="get_in_touch_section" id="get_in_touch">
+        <h1 class="form_head">Get In Touch</h1>
+        <div class="form_group">
+                <form method="POST" class="f_center">
+                    {% csrf_token %}
+                    <div class="f_name f_block">
+                        <div class="label">Name</div>
+                        {{form.name}}
+                    </div>
+                    <div class="f_email f_block">
+                        <div class="label">Email</div>
+                        {{form.email}}
+                    </div>
+                    <div class="f_subject f_block">
+                        <div class="label">Subject</div>
+                        {{form.subject}}
+                    </div>
+                    <div class="f_message f_block">
+                        <div class="label">Message</div>
+                        {{form.message}}
+                    </div>
+                    
+                    <div class="form_btn">
+                        <button class="submit_btn">Submit</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <!-- footer_section -->
+    <div class="footer_section">
+        <div class="left_footer_content">
+            <h2 class="footer_head">Business</h2>
+            <div class="details">
+                <div class="profile">
+                    <img class="profile_pic" src="{% static 'ar_portfolio/images/dp.jpeg' %}" alt="profile_pic">
+                </div>
+                <div class="info">
+                    <p>Email: abhkrwt07@gmail.com</p>
+                    <p>Location: Dehradun, Uttarakhand, India.</p>
+                </div>
+            </div>
+        </div>
+        <p class="footer_label">made with <span id="love">&lt;3</span> love by Abhishek Rawat.</p>
+    </div>
+</body>
+
+<!-- javascript -->
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<!-- cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+
+    new Splide( '.splide', {
+        type   : 'loop',
+        perPage: 2,
+        autoplay: true,
+    } ).mount();
+
+    var type = document.querySelector(".typewrite");
+
+    var typewriter = new Typewriter(type, {
+    loop: true,
+    delay: 75,
+    deleteSpeed: 75,
+    });
+
+    typewriter
+    .pauseFor(1500)
+    .typeString("I'm <strong>Abhishek Rawat.</strong>")
+    .pauseFor(300)
+    .typeString("<br>I love to <strong style='color: #1540D9;'>Design.</strong>")
+    .deleteChars(7)
+    .typeString("<strong style='color: #1540D9;'>Develop.</strong>")
+    .pauseFor(5000)
+    .start();
+
+</script>
+</html>
