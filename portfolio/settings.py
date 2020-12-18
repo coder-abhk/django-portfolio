@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$8*+(cj*$*eh6s)bd=&ovnz&4louebt9f7px@%n(oie*e$4tq#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["abhishekrawat.herokuapp.com", "127.0.0.1"]
 
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'user_data',
         'HOST': '127.0.0.1',
-        'POST': '3306',
+        'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'adjourned',
     }
@@ -123,5 +123,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = '/staticfiles/'
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = '/static/'
