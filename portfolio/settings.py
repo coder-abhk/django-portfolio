@@ -27,7 +27,7 @@ SECRET_KEY = '$8*+(cj*$*eh6s)bd=&ovnz&4louebt9f7px@%n(oie*e$4tq#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['abhishekrawat.herokuapp.com']
+ALLOWED_HOSTS = ['abhishekrawat.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -87,7 +87,8 @@ DATABASES = {
 }
 
 # new
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -128,3 +129,4 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
