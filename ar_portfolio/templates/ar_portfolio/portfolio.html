@@ -152,29 +152,33 @@
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
 
-    new Splide( '.splide', {
+    window.addEventListener('DOMContentLoaded', (event) => {
+
+        new Splide( '.splide', {
         type   : 'loop',
         perPage: 2,
         autoplay: true,
-    } ).mount();
+        } ).mount();
 
-    var type = document.querySelector(".typewrite");
+        var type = document.querySelector(".typewrite");
 
-    var typewriter = new Typewriter(type, {
-    loop: true,
-    delay: 75,
-    deleteSpeed: 75,
+        var typewriter = new Typewriter(type, {
+        loop: true,
+        delay: 75,
+        deleteSpeed: 75,
+        });
+
+        typewriter
+        .pauseFor(1500)
+        .typeString("I'm <strong>Abhishek Rawat.</strong>")
+        .pauseFor(300)
+        .typeString("<br>I love to <strong style='color: #1540D9;'>Design.</strong>")
+        .deleteChars(7)
+        .typeString("<strong style='color: #1540D9;'>Develop.</strong>")
+        .pauseFor(5000)
+        .start();
+
     });
-
-    typewriter
-    .pauseFor(1500)
-    .typeString("I'm <strong>Abhishek Rawat.</strong>")
-    .pauseFor(300)
-    .typeString("<br>I love to <strong style='color: #1540D9;'>Design.</strong>")
-    .deleteChars(7)
-    .typeString("<strong style='color: #1540D9;'>Develop.</strong>")
-    .pauseFor(5000)
-    .start();
 
 </script>
 </html>
