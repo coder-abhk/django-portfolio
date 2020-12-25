@@ -1,19 +1,27 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- meta data -->
     <meta name="description" content=" Abhishek Rawat Portfolio">
-    <meta name="keywords" content="Portfolio, abhishekrawat.herokuapp, abhishek rawat, ar portfolio, AbhishekRawat.herokuapp">
+    <meta name="keywords"
+        content="Portfolio, abhishekrawat.herokuapp, abhishek rawat, ar portfolio, AbhishekRawat.herokuapp">
     <meta name="author" content="Abhishek Rawat">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- icon -->
     <link rel="shortcut icon" href="{% static 'ar_portfolio/images/icon.png' %}">
     <!-- css link -->
     <link rel="stylesheet" href="{% static 'ar_portfolio/style.css' %}">
+    <!-- javascript -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <!-- cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <title>AbhishekRawat</title>
 </head>
+
 <body>
     <!-- nav_section -->
     <div class="nav_bar">
@@ -72,12 +80,18 @@
         <div class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/01.png' %}" alt=""></li>
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/02.png' %}" alt=""></li>
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/03.png' %}" alt=""></li>
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/04.png' %}" alt=""></li>
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/05.png' %}" alt=""></li>
-                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/06.png' %}" alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/01.png' %}"
+                            alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/02.png' %}"
+                            alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/03.png' %}"
+                            alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/04.png' %}"
+                            alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/05.png' %}"
+                            alt=""></li>
+                    <li class="splide__slide"><img class="slide_img" src="{% static 'ar_portfolio/ui_img/06.png' %}"
+                            alt=""></li>
                 </ul>
             </div>
         </div>
@@ -101,29 +115,29 @@
     <div class="get_in_touch_section" id="get_in_touch">
         <h1 class="form_head">Get In Touch</h1>
         <div class="form_group">
-                <form method="POST" class="f_center">
-                    {% csrf_token %}
-                    <div class="f_name f_block">
-                        <div class="label">Name</div>
-                        {{form.name}}
-                    </div>
-                    <div class="f_email f_block">
-                        <div class="label">Email</div>
-                        {{form.email}}
-                    </div>
-                    <div class="f_subject f_block">
-                        <div class="label">Subject</div>
-                        {{form.subject}}
-                    </div>
-                    <div class="f_message f_block">
-                        <div class="label">Message</div>
-                        {{form.message}}
-                    </div>
-                    
-                    <div class="form_btn">
-                        <button class="submit_btn">Submit</button>
-                    </div>
-                </form>
+            <form method="POST" class="f_center">
+                {% csrf_token %}
+                <div class="f_name f_block">
+                    <div class="label">Name</div>
+                    {{form.name}}
+                </div>
+                <div class="f_email f_block">
+                    <div class="label">Email</div>
+                    {{form.email}}
+                </div>
+                <div class="f_subject f_block">
+                    <div class="label">Subject</div>
+                    {{form.subject}}
+                </div>
+                <div class="f_message f_block">
+                    <div class="label">Message</div>
+                    {{form.message}}
+                </div>
+
+                <div class="form_btn">
+                    <button class="submit_btn">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -144,32 +158,26 @@
         <p class="footer_label">made with <span id="love">&lt;3</span> love by Abhishek Rawat.</p>
     </div>
 </body>
-
-<!-- javascript -->
-<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-<!-- cdn -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
 
-    window.addEventListener('DOMContentLoaded', (event) => {
-
-        new Splide( '.splide', {
-        type   : 'loop',
-        perPage: 2,
+    // instantiate Splide()
+    new Splide('.splide', {
+        type: 'loop',
+        perPage: 1,
         autoplay: true,
-        } ).mount();
+    }).mount();
 
-        var type = document.querySelector(".typewrite");
+    var type = document.querySelector(".typewrite");
 
-        var typewriter = new Typewriter(type, {
+    // instantiate Typewriter()
+    var typewriter = new Typewriter(type, {
         loop: true,
         delay: 75,
         deleteSpeed: 75,
-        });
+    });
 
-        typewriter
-        .pauseFor(1500)
+    typewriter
+        .pauseFor(5000)
         .typeString("I'm <strong>Abhishek Rawat.</strong>")
         .pauseFor(300)
         .typeString("<br>I love to <strong style='color: #1540D9;'>Design.</strong>")
@@ -178,7 +186,7 @@
         .pauseFor(5000)
         .start();
 
-    });
 
 </script>
+
 </html>
